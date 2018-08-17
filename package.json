@@ -1,0 +1,40 @@
+{
+  "name": "webpack4-demo",
+  "version": "1.0.0",
+  "description": "webpack4 typescript vue2 element-ui demo",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config build/webpack.prod.js",
+    "start": "node server",
+    "webpack-dev-server": "webpack-dev-server --config build/webpack.dev.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "semi": false,
+    "trailingComma": "es5"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "image-webpack-loader": "^4.3.1",
+    "style-loader": "^0.22.0",
+    "uglifyjs-webpack-plugin": "^1.3.0",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.16.3",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5",
+    "webpack-manifest-plugin": "^2.0.3",
+    "webpack-merge": "^4.1.4"
+  },
+  "dependencies": {
+    "lodash": "^4.17.10"
+  }
+}

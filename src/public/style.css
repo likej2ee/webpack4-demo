@@ -1,0 +1,46 @@
+.hello {
+  color: rgb(35, 146, 72);
+  background-image: url(./images/bobo.png);
+}
+
+@font-face {
+  font-family: 'ydctrl-icon';
+  font-weight: normal;
+  font-style: normal;
+
+  src: url('fonts/ydctrl-icon.eot');
+  src: url('fonts/ydctrl-icon.eot#iefix') format('embedded-opentype'), url('fonts/ydctrl-icon.ttf') format('truetype'),
+  url('fonts/ydctrl-icon.woff') format('woff');
+}
+
+[class^='yd-icon-'],
+[class*=' yd-icon-'] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'ydctrl-icon' !important;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+
+  text-transform: none;
+  /* Better Font Rendering =========== */
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.yd-icon-rmb:before {
+  content: '\e900';
+}
+.yd-icon-password:before {
+  content: '\e901';
+}
+.yd-icon-hidden:before {
+  content: '\e902';
+}
+.yd-icon-top:before {
+  content: '\e903';
+}
+.yd-icon-username:before {
+  content: '\e904';
+}
