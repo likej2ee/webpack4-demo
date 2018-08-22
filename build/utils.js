@@ -2,15 +2,15 @@ const path = require('path')
 const config = require('../config')
 const SOURCE_CODE_ROOT = config.constants.sourceCodeRoot
 const INCLUDE_PATHS = path.resolve(__dirname, './' + SOURCE_CODE_ROOT + '/core')
-const IS_PRODUCTION = process.env.NODE_ENV !== 'production'
-const OUT_PUT_STYLE = process.env.NODE_ENV === 'production' ? 'compressed' : 'nested'
+const devMode = process.env.NODE_ENV === 'development'
+const OUT_PUT_STYLE = devMode ? 'nested' : 'compressed'
 
 // css-loader
 exports.cssLoaderConfig = {
   loader: 'css-loader',
   options: {
     minimize: true,
-    sourceMap: IS_NEED_SOURCE_MAP,
+    sourceMap: devMode,
   },
 }
 
@@ -20,6 +20,6 @@ exports.scssLoaderConfig = {
   options: {
     outputStyle: OUT_PUT_STYLE,
     includePaths: [INCLUDE_PATHS],
-    sourceMap: IS_NEED_SOURCE_MAP,
+    sourceMap: devMode,
   },
 }

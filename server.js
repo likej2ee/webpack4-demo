@@ -2,7 +2,7 @@ const opn = require('opn')
 const webpack = require('webpack')
 const webpackDevServer = require('webpack-dev-server')
 
-const webpackDevConfig = require('./build/webpack.dev')
+const webpackDevConfig = require('./build/webpack.config.dev')
 const devServerOptions = Object.assign({}, webpackDevConfig.devServer, {
   open: true, // 不知道为啥 node 运行时不起作用
   host: 'localhost',

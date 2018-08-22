@@ -2,13 +2,14 @@ const path = require('path')
 const merge = require('webpack-merge')
 const webpack = require('webpack')
 
-const common = require('./webpack.common.js')
+const config = require('../config')
+const common = require('./webpack.config.common.js')
 
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.resolve(__dirname, config.constants.buildRoot),
     compress: true,
     hot: true,
   },
@@ -16,4 +17,9 @@ module.exports = merge(common, {
     // new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
   ],
+  output: {
+    publicPath: '',
+    filename: '[name].[hash].js',
+    // chunkFilename: '[name].[hash].js',
+  },
 })

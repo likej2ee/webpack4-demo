@@ -1,6 +1,9 @@
 import { cube, square } from '../utils/math'
-// import printMe from './print'
-import './style.css'
+import _ from 'lodash'
+import vue from 'vue'
+
+import printMe from './print'
+import './style.scss'
 // import iconUrl from './images/icon.jpg'
 
 function component() {
@@ -17,11 +20,11 @@ function component() {
 
   // element.appendChild(myIcon)
 
-  // var btn = document.createElement('button')
-  // btn.innerHTML = 'Click me and check the console!'
-  // btn.onclick = printMe
+  var btn = document.createElement('button')
+  btn.innerHTML = 'Click me and check the console!'
+  btn.onclick = printMe
 
-  // element.appendChild(btn)
+  element.appendChild(btn)
 
   return element
 }

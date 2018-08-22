@@ -1,4 +1,4 @@
 export default function pringMe() {
   console.error('I get called from print.js')
-  console.log('test8')
+  console.log('test10')
 }
