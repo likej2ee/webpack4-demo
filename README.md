@@ -3,7 +3,7 @@
 - 基于 webpack4 版本
 - hmr 与 dll 整合应用
 
-## Usage
+## Usage
 
 ```shell
 # 安装依赖
