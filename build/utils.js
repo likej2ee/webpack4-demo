@@ -1,7 +1,6 @@
 const path = require('path')
 const config = require('../config')
-const SOURCE_CODE_ROOT = config.constants.sourceCodeRoot
-const INCLUDE_PATHS = path.resolve(__dirname, './' + SOURCE_CODE_ROOT + '/core')
+const INCLUDE_PATHS = path.resolve(__dirname, './' + config.SOURCE_DIR + '/core')
 const devMode = process.env.NODE_ENV === 'development'
 const OUT_PUT_STYLE = devMode ? 'nested' : 'compressed'
 

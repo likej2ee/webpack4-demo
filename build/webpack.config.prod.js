@@ -30,7 +30,7 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin([config.constants.buildRoot], { root: path.resolve(__dirname, '../') }),
+    // new CleanWebpackPlugin([config.BUILD_DIR], { root: path.resolve(__dirname, '../') }),
     new HashOutput({
       validateOutput: true,
       // Check that md5(assets/main.<hash>.js) === <hash>, but doesn't check fragments/app.html

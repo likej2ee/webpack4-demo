@@ -1,10 +1,17 @@
 import { cube, square } from '../utils/math'
 import _ from 'lodash'
-import vue from 'vue'
+import Vue from 'vue'
 
 import printMe from './print'
 import './style.scss'
 // import iconUrl from './images/icon.jpg'
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue!',
+  },
+})
 
 function component() {
   var element = document.createElement('pre')
