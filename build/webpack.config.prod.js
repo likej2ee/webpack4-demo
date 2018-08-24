@@ -45,7 +45,7 @@ module.exports = merge(common, {
   ],
   output: {
     publicPath: config.production.assetsDomain,
-    filename: '[name].[chunkhash].js',
+    filename: '[name].[chunkhash:12].js',
     // chunkFilename: '[name].[chunkhash].js',
   },
 })

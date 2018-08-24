@@ -23,8 +23,8 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, DLL_OUTPUT),
-    filename: 'dll.[name].[chunkhash].js',
-    library: '[name]_[chunkhash]',
+    filename: 'dll.[name].[chunkhash:12].js',
+    library: '[name]_[chunkhash:12]',
   },
   plugins: [
     new CleanWebpackPlugin([config.BUILD_DIR], { root: path.resolve(__dirname, '../') }),
@@ -34,7 +34,7 @@ module.exports = {
     new webpack.DllPlugin({
       context: path.join(__dirname, DLL_OUTPUT),
       path: path.join(__dirname, DLL_OUTPUT, 'manifest-[name].json'),
-      name: '[name]_[chunkhash]',
+      name: '[name]_[chunkhash:12]',
     }),
   ],
 }
