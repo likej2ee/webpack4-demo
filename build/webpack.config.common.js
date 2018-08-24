@@ -1,4 +1,3 @@
-const pictureRule = require('./rule-picture')
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -7,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlImportDllPlugin = require('./html-import-dll-plugin')
 
 const config = require('../config')
-const utils = require('./utils')
+const loaders = require('./loaders')
 const devMode = process.env.NODE_ENV === 'development'
 const DLL_OUTPUT = '../' + config.BUILD_DIR
 
@@ -47,12 +46,15 @@ module.exports = {
         test: /\.(sa|sc|c)ss$/,
         use: [
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-          utils.cssLoaderConfig,
+          loaders.cssLoader,
           'postcss-loader',
-          utils.scssLoaderConfig,
+          loaders.scssLoader,
         ],
       },
-      pictureRule,
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [loaders.urlLoader, loaders.ImageWebpackLoader],
+      },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: ['file-loader'],
