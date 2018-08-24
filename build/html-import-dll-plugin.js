@@ -17,13 +17,13 @@ HtmlImportDllPlugin.prototype.apply = function(compiler) {
 
     // 生成html之前
     compilation.hooks.htmlWebpackPluginBeforeHtmlGeneration.tapAsync('HtmlImportDllPlugin', (data, cb) => {
-      const filename = path.join(compiler.outputPath, config.MANIFEST_DLL)
-      let text = fs.readFileSync(filename, 'utf-8')
-      let json = JSON.parse(text.toString())
+      const manifestFilename = path.join(compiler.outputPath, config.MANIFEST_DLL)
+      let contentText = fs.readFileSync(manifestFilename, 'utf-8')
+      let manifestJson = JSON.parse(contentText.toString())
 
       // 将dll资源写入资源数组
-      for (const item in json) {
-        data.assets.js.unshift(json[item])
+      for (const item in manifestJson) {
+        data.assets.js.unshift(manifestJson[item])
       }
 
       cb(null, data)
