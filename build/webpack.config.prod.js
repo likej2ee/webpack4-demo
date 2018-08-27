@@ -1,7 +1,5 @@
 const path = require('path')
-const config = require('../config')
 const merge = require('webpack-merge')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
@@ -30,7 +28,6 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
-    // new CleanWebpackPlugin([config.BUILD_DIR], { root: path.resolve(__dirname, '../') }),
     new HashOutput({
       validateOutput: true,
       // Check that md5(assets/main.<hash>.js) === <hash>, but doesn't check fragments/app.html
@@ -44,7 +41,6 @@ module.exports = merge(common, {
     }),
   ],
   output: {
-    publicPath: config.production.assetsDomain,
     filename: '[name].[chunkhash:12].js',
     // chunkFilename: '[name].[chunkhash].js',
   },

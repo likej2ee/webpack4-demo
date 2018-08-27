@@ -22,6 +22,7 @@ module.exports = {
     // vue: ['vue', 'vue-router'],
   },
   output: {
+    publicPath: config.getPublicPath(process.env.NODE_ENV),
     path: path.join(__dirname, DLL_OUTPUT),
     filename: 'dll.[name].[chunkhash:12].js',
     library: '[name]_[chunkhash:12]',

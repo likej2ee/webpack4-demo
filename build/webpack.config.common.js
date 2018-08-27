@@ -29,6 +29,7 @@ module.exports = {
     },
   },
   output: {
+    publicPath: config.getPublicPath(process.env.NODE_ENV),
     path: path.join(__dirname, DLL_OUTPUT),
   },
   resolve: {
