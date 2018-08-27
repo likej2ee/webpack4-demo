@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.dll.js && cross-env NODE_ENV=production webpack --config build/webpack.config.prod.js",
+    "buildtest": "cross-env NODE_ENV=test webpack --config build/webpack.dll.js && cross-env NODE_ENV=test webpack --config build/webpack.config.prod.js",
     "dll": "cross-env NODE_ENV=development webpack --config build/webpack.dll.js",
     "start": "cross-env NODE_ENV=development node dev-server"
   },

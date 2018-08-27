@@ -4,13 +4,13 @@ module.exports = {
   MANIFEST_DLL: 'manifest-dll.json', // dll hash映射文件
 
   production: {
-    publicPath: '', // 资源所在位置的域名
+    publicPath: 'http://127.0.0.1:3000/', // 资源所在位置的域名
   },
   test: {
-    publicPath: 'http://127.0.0.1:3000/',
+    publicPath: 'http://localhost:3000/',
   },
   development: {
-    publicPath: 'http://127.0.0.1:3000/',
+    publicPath: '',
   },
 
   // 获取当前环境对应的资源域名

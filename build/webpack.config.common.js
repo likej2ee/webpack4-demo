@@ -7,7 +7,8 @@ const HtmlImportDllPlugin = require('./html-import-dll-plugin')
 
 const config = require('../config')
 const loaders = require('./loaders')
-const devMode = process.env.NODE_ENV === 'development'
+const NODE_ENV = process.env.NODE_ENV
+const devMode = NODE_ENV === 'development'
 const DLL_OUTPUT = '../' + config.BUILD_DIR
 
 module.exports = {
@@ -29,7 +30,7 @@ module.exports = {
     },
   },
   output: {
-    publicPath: config.getPublicPath(process.env.NODE_ENV),
+    publicPath: config.getPublicPath(NODE_ENV),
     path: path.join(__dirname, DLL_OUTPUT),
   },
   resolve: {
@@ -63,6 +64,11 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.DefinePlugin({
+      __DEV__: NODE_ENV === 'development' ? true : false,
+      __TEST__: NODE_ENV === 'test' ? true : false,
+      __PRODUCTION__: NODE_ENV === 'production' ? true : false,
+    }),
     new ManifestPlugin(),
     new HtmlWebpackPlugin({
       favicon: 'src/public/favicon.ico',

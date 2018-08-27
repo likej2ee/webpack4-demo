@@ -13,6 +13,16 @@ var app = new Vue({
   },
 })
 
+if (__DEV__) {
+  console.log('this is dev env')
+}
+if (__TEST__) {
+  console.log('this is dev test')
+}
+if (__PRODUCTION__) {
+  console.log('this is dev production')
+}
+
 function component() {
   var element = document.createElement('pre')
   element.innerHTML = ['Hello webpack!', '5 cubed is equal to ' + cube(5), 'square ' + square(6)].join('\n\n')
