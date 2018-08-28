@@ -33,7 +33,9 @@ function writeDllFiles(compiler) {
   let filename = ''
 
   for (const item in manifestJson) {
-    filename = path.join(compiler.outputPath, manifestJson[item])
+    filename = manifestJson[item]
+    filename = filename.replace(config.development.assetsDomain, '') // 修正路径
+    filename = path.join(compiler.outputPath, filename)
 
     // 将dll资源写入内存
     fs.readFile(filename, (err, data) => {

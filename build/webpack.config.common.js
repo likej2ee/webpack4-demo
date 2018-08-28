@@ -9,7 +9,7 @@ const config = require('../config')
 const loaders = require('./loaders')
 const NODE_ENV = process.env.NODE_ENV
 const devMode = NODE_ENV === 'development'
-const DLL_OUTPUT = '../' + config.BUILD_DIR
+const BUILD_PATH = '../' + config.BUILD_DIR
 
 module.exports = {
   entry: {
@@ -31,7 +31,7 @@ module.exports = {
   },
   output: {
     publicPath: config.getPublicPath(NODE_ENV),
-    path: path.join(__dirname, DLL_OUTPUT),
+    path: path.join(__dirname, BUILD_PATH),
   },
   resolve: {
     modules: [
@@ -81,16 +81,16 @@ module.exports = {
     }),
     new HtmlImportDllPlugin(),
     // new webpack.DllReferencePlugin({
-    //   context: path.join(__dirname, DLL_OUTPUT),
-    //   manifest: require(path.join(__dirname, DLL_OUTPUT + '/manifest-lib.json')),
+    //   context: path.join(__dirname, BUILD_PATH),
+    //   manifest: require(path.join(__dirname, BUILD_PATH + '/manifest-lib.json')),
     // }),
     // new webpack.DllReferencePlugin({
-    //   context: path.join(__dirname, DLL_OUTPUT),
-    //   manifest: require(path.join(__dirname, DLL_OUTPUT + '/manifest-vue.json')),
+    //   context: path.join(__dirname, BUILD_PATH),
+    //   manifest: require(path.join(__dirname, BUILD_PATH + '/manifest-vue.json')),
     // }),
     new webpack.DllReferencePlugin({
-      context: path.join(__dirname, DLL_OUTPUT),
-      manifest: require(path.join(__dirname, DLL_OUTPUT + '/manifest-vendors.json')),
+      context: path.join(__dirname, BUILD_PATH),
+      manifest: require(path.join(__dirname, BUILD_PATH + '/manifest-vendors.json')),
     }),
   ],
 }

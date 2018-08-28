@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const config = require('../config')
-const DLL_OUTPUT = '../' + config.BUILD_DIR
+const BUILD_PATH = '../' + config.BUILD_DIR
 const devMode = process.env.NODE_ENV === 'development'
 
 module.exports = {
@@ -23,7 +23,7 @@ module.exports = {
   },
   output: {
     publicPath: config.getPublicPath(process.env.NODE_ENV),
-    path: path.join(__dirname, DLL_OUTPUT),
+    path: path.join(__dirname, BUILD_PATH),
     filename: 'dll.[name].[chunkhash:12].js',
     library: '[name]_[chunkhash:12]',
   },
@@ -33,8 +33,8 @@ module.exports = {
       fileName: config.MANIFEST_DLL,
     }),
     new webpack.DllPlugin({
-      context: path.join(__dirname, DLL_OUTPUT),
-      path: path.join(__dirname, DLL_OUTPUT, 'manifest-[name].json'),
+      context: path.join(__dirname, BUILD_PATH),
+      path: path.join(__dirname, BUILD_PATH, 'manifest-[name].json'),
       name: '[name]_[chunkhash:12]',
     }),
   ],
